@@ -35,12 +35,16 @@
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
+                    <!-- Edit btn passing the id -->
+                    <a href="/books/<%= books[count]._id%>" class="btn btn-primary">EDIT</a>
                   </td>
 
                   <td class="text-center">
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
                     <!-- ------------------------ -->
+                    <!-- Delete btn passing the id -->
+                    <a href="/books/delete/<%= books[count]._id%>" class="btn btn-warning">DELETE</a>
                   </td>
                 </tr>
                 <% } %>
