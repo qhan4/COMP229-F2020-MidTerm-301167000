@@ -25,16 +25,19 @@ router.get('/', (req, res, next) => {
 
 //  GET the Book Details page in order to add a new Book
 router.get('/add', (req, res, next) => {
+  /*****************
+   * render the view *
+   *****************/
   res.render('./books/details',{ title: 'Add Book', books: book});
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+
 
 });
 
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
-
+  /*****************
+   * process the new entry to DB *
+   *****************/
   let newBook = book({
     "Title": req.body.title,
     "Price": req.body.price,
@@ -58,6 +61,9 @@ router.post('/add', (req, res, next) => {
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
 
+  /*****************
+   * find the entry in DB and render the view *
+   *****************/
 
   book.findById(req.params.id, function (err, book){
     if (err) {
@@ -72,9 +78,9 @@ router.get('/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+  /*****************
+   * process the update entry to DB *
+   *****************/
      let updatedBook = book({
         "_id": req.params.id,
         "Title": req.body.title,
@@ -100,10 +106,9 @@ router.post('/:id', (req, res, next) => {
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
+  /*****************
+   * process the delete  entry to DB *
+   *****************/
      book.remove({_id: req.params.id}, (err) => {
     if(err)
     {

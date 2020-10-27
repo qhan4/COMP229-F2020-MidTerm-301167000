@@ -4,7 +4,6 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-const listEndpoints = require("express-list-endpoints");
 
 // import "mongoose" - required for DB Access
 let mongoose = require('mongoose');
@@ -60,7 +59,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-console.log(listEndpoints(app));
 
 
 module.exports = app;
